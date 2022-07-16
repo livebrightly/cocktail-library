@@ -1,0 +1,18 @@
+<div class="navbar-fixed">
+
+    <nav>
+
+        <!-- <div class="nav-wrapper"> -->
+        <a href="" class="brand-logo left"></a>
+        <a href="/libraryBar" <%- title === 'LibraryBar' ? 'class="active"' : '' %>> LibraryBar </a>
+        <a href="/libraryBar/newCocktail" <%- title === 'Mixology' ? 'class="active"' : '' %>> Mixology </a>
+        <a href="/about" <%- title === 'Philosophy' ? 'class="active"' : '' %>> Philosophy </a>
+        <a href="/libraryBar/glossary" <%- title === 'Glossary' ? 'class="active"' : '' %>> Glossary </a>
+        <a href="#" <%- title === 'Reserve' ? 'class="active"' : '' %>> Reserve </a>
+        <%# login UI %>
+
+    </nav>
+</div>
+
+<main>
+    <h1><%= title %></h1>

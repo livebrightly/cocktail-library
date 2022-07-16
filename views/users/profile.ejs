@@ -1,0 +1,79 @@
+<%- include('../partials/header') %>
+
+<%- include('../partials/nav') %>
+
+<div class="container">
+    <div class="search-row" class="row">
+        <h2 class="col s4 blue-grey-text text-darken-2">Profile</h2>
+        <form action="/" method="GET">
+            <div class="col s3 offset-s3">
+                <!-- search -->
+                <div class="input-field">
+                    <input id="search" type="search" name="name" placeholder="search name" value="<%= name %>"
+                        autocomplete="off">
+                    <i class="material-icons">close</i>
+                </div>
+            </div>
+            <div class="col s2">
+                <p>
+                    <label for="sort-faves">
+                        <input name="sort" type="radio" id="sort-faves" value="faves" class="with-gap"
+                            <%= sortKey === 'faves' ? 'checked' : '' %>>
+                        <span>Sort by Favourites</span>
+                    </label>
+                </p>
+                <p>
+                    <label for="sort-name">
+                        <input name="sort" type="radio" id="sort-name" value="name" class="with-gap"
+                            <%= sortKey === 'name' ? 'checked' : '' %>>
+                        <span>Sort by Name</span>
+                    </label>
+                </p>
+            </div>
+        </form>
+    </div>
+    <div class="row">
+        <div id="profile" class="col s12">
+            <% profiles.forEach(function(profile) { %>
+            <div class="card blue-grey">
+                <div class="card-content white-text">
+                    <div>
+                        <span class="card-title">
+                            <i class="small material-icons">perm_identity</i>
+                            <span class="profile-name"><%= profile.name %></span>
+                            <% if (profile.avatar) { %>
+                            <img src="<%= profile.avatar %>" class="circle responsive-img" width="100">
+                            <% } else { %>
+                            <i class="small material-icons">perm_identity</i>
+                            <% } %>
+                        </span>
+                        <% if (profile.faves) { %>
+                        <span class="badge white">SEI <%= profile.faves %></span><% } %>
+                        </span>
+                    </div>
+                    <ul class="collection">
+                        <% profile.notes.forEach(function(note) { %>
+                        <li class="collection-item blue-grey-text text-darken-2"><%- note.text %></li>
+                        <li class="collection-item blue-grey-text text-darken-2"><%- note.text %></li>
+                        <li class="collection-item blue-grey-text text-darken-2"><%- note.text %></li>
+                        <% }) %>
+                    </ul>
+                    <!-- Add Dynamic UI form below this line -->
+                    <% if (profile._id.equals(user && user._id)) { %>
+                    <div class="card-action">
+                        <form action="/notes" method="POST">
+                            <input type="text" name="text" class="white-text">
+                            <button type="submit" class="btn white-text">Add Note</button>
+                            <button type="submit" class="btn white-text">Delete Note</button>
+                        </form>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+            <% }) %>
+        </div>
+    </div>
+</div>
+
+
+<%- include('../partials/footer') %>

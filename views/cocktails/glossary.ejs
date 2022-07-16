@@ -1,0 +1,29 @@
+<%- include('./partials/header') %>
+<%- include('./partials/nav') %>
+
+
+<p>Welcome to <%= title %></p>
+
+<h4>Glossary page that lists all cocktails</h4>
+
+<% cocktails.forEach(function(cocktail) { %>
+
+<a href="/libraryBar/details/<%= cocktail.cocktailId %>" <%- title === 'Add a Cocktail' ? 'class="active"' : '' %>> add
+    a Cocktail </a>
+
+<%#img src="/images/testDrinkImg.jpg" alt=""%>
+<li>
+    <img src="<%= cocktail.image %>" alt="image">
+</li>
+<img src=<%= cocktail['image']%>>
+<li>
+    <%= cocktail.name %>
+</li>
+<li>
+    <%#= cocktail.description %>
+</li>
+</a>
+<% }) %>
+
+
+<%- include('./partials/footer') %>

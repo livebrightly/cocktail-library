@@ -1,0 +1,76 @@
+<%- include('../partials/header') %>
+<%- include('../partials/nav') %>
+
+
+<p>Welcome to <%= title %></p>
+
+<h4>This is the main welcome index page that will run the loader and redirect to
+    library bar </h4>
+
+<form class="new-form" action="/libraryBar" method="POST">
+
+    <label>Name</label>
+    <input name="name" type="text" />
+    <label>Season</label>
+    <input name="season" type="text" />
+    <label>Description</label>
+    <input name="description" type="text" />
+    <label>Ingredients</label>
+    <input name="ingredients" type="text" />
+    <label>Instructions</label>
+    <input name="method" type="text" />
+    <label>Image</label>
+    <input name="image" type="text" />
+    <label>Rating (out of 5)</label>
+
+    <input type="submit" value="Add Cocktail" />
+</form>
+
+<div class="rating">
+    <label>
+        <input type="radio" name="stars" value="1" />
+        <span class="icon">★</span>
+    </label>
+    <label>
+        <input type="radio" name="stars" value="2" />
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+    </label>
+    <label>
+        <input type="radio" name="stars" value="3" />
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+    </label>
+    <label>
+        <input type="radio" name="stars" value="4" />
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+    </label>
+    <label>
+        <input type="radio" name="stars" value="5" />
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+        <span class="icon">★</span>
+    </label>
+</div>
+
+<label>Contains alcohol</label>
+<input name="hasAlcohol" type="checkbox" />
+<label>Added to list</label>
+<input name="isAdded" type="checkbox" />
+<label>add to favourite</label>
+<div class="favourite">
+    <label>
+        <input type="radio" name="heart" value="1" />
+        <span class="icon">❤</span>
+    </label>
+</div>
+
+
+
+<%- include('../partials/footer') %>
